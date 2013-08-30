@@ -11,3 +11,4 @@
 .iml
 /*.iml
 build
+/extras/sshapp-mobileCommon/*.iml
