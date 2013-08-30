@@ -94,8 +94,8 @@ public class AppConfig {
             fis = new FileInputStream(dirConf.getPath() + File.separator + APP_CONFIG);
 
             props.load(fis);
-        } catch (FileNotFoundException e) {
-            Logger.e("file not found");
+        //} catch (FileNotFoundException e) {
+        //    Logger.e("file not found");
         } catch (IOException e) {
             Logger.e("");
         } finally {
