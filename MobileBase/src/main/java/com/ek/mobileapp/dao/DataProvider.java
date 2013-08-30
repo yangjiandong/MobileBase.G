@@ -45,7 +45,7 @@ public class DataProvider extends ContentProvider {
 
     public static DBHelper getDBHelper() {
         if (mDBHelper == null) {
-            mDBHelper = new DBHelper((Context)MainApplication.get().getApplicationContext());
+            mDBHelper = new DBHelper(MainApplication.get().getApplicationContext());
         }
         return mDBHelper;
     }
@@ -61,7 +61,7 @@ public class DataProvider extends ContentProvider {
     }
 
     private String matchTable(Uri uri) {
-        String table = null;
+        String table;
         switch (sUriMatcher.match(uri)) {
             case HZS:
                 table = HzDataHelper.HzDBInfo.TABLE_NAME;
@@ -125,7 +125,7 @@ public class DataProvider extends ContentProvider {
         }
     }
 
-    //@Override
+    // 忽略唯一性错误
     public int UnbulkInsert(Uri uri, ContentValues[] values) {
         synchronized (DBLock) {
             String table = matchTable(uri);
@@ -139,6 +139,8 @@ public class DataProvider extends ContentProvider {
                 db.setTransactionSuccessful();
                 getContext().getContentResolver().notifyChange(uri, null);
                 return values.length;
+            } catch (NullPointerException ne){
+                Log.e(TAG, ne.getMessage());
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage());
             } finally {

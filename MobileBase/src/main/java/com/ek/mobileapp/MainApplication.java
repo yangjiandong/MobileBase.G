@@ -150,7 +150,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 获取App安装包信息
-     * @return
      */
     public PackageInfo getPackageInfo() {
         PackageInfo info = null;
@@ -166,7 +165,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 获取App唯一标识
-     * @return
      */
     public String getAppId() {
         String uniqueID = getProperty(AppConfig.CONF_APP_UNIQUEID);
@@ -182,29 +180,29 @@ public abstract class MainApplication extends Application {
         if (u != null) {
             Logger.d("isCurrentLogin:" + u.getLoginName());
         }
-        return u == null ? false : true;
+        return u != null;
     }
 
     public String getDeviceDisplayDetails() {
         DisplayMetrics displaymetrics = getResources().getDisplayMetrics();
         Configuration configuration = getResources().getConfiguration();
         Object aobj[] = new Object[16];
-        aobj[0] = Integer.valueOf(configuration.screenLayout);
-        aobj[1] = Float.valueOf(configuration.fontScale);
-        aobj[2] = Float.valueOf(displaymetrics.density);
-        aobj[3] = Integer.valueOf(displaymetrics.densityDpi);
-        aobj[4] = Float.valueOf(displaymetrics.xdpi);
-        aobj[5] = Float.valueOf(displaymetrics.ydpi);
-        aobj[6] = Integer.valueOf(displaymetrics.widthPixels);
-        aobj[7] = Integer.valueOf(displaymetrics.heightPixels);
+        aobj[0] = configuration.screenLayout;
+        aobj[1] = configuration.fontScale;
+        aobj[2] = displaymetrics.density;
+        aobj[3] = displaymetrics.densityDpi;
+        aobj[4] = displaymetrics.xdpi;
+        aobj[5] = displaymetrics.ydpi;
+        aobj[6] = displaymetrics.widthPixels;
+        aobj[7] = displaymetrics.heightPixels;
         aobj[8] = System.getProperty("os.name");
         aobj[9] = System.getProperty("os.version");
         aobj[10] = System.getProperty("os.arch");
         aobj[11] = android.os.Build.VERSION.RELEASE;
-        aobj[12] = Integer.valueOf(android.os.Build.VERSION.SDK_INT);
+        aobj[12] = Build.VERSION.SDK_INT;
         aobj[13] = Build.DISPLAY;
-        aobj[14] = Integer.valueOf(60);
-        aobj[15] = Integer.valueOf(ViewUtils.getPixelsOf(60, this));
+        aobj[14] = 60;
+        aobj[15] = ViewUtils.getPixelsOf(60, this);
         return StringUtils
                 .formatOf(
                         "layout: {0} fontScale: {1}\ndensity: {2} densityDpi: {3} xdpi: {4} ydpi: {5}\ndisplay width: {6} height: {7} pixels: {14} == {15}\nos: {8} {9} {10}\nandroid: {11} ({12}) {13}",
@@ -246,7 +244,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 检测当前系统声音是否为正常模式
-     * @return
      */
     public boolean isAudioNormal() {
         AudioManager mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
@@ -255,7 +252,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 应用程序是否发出提示音
-     * @return
      */
     public boolean isAppSound() {
         return isAudioNormal() && isVoice();
@@ -263,7 +259,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 是否发出提示音
-     * @return
      */
     public boolean isVoice() {
         String perf_voice = getProperty(AppConfig.CONF_VOICE);
@@ -276,14 +271,11 @@ public abstract class MainApplication extends Application {
 
     /**
      * 是否启用语音提示,默认启用
-     * @return
      */
     public boolean isUseVoice() {
         String st = getProperty(AppConfig.CONF_USE_VOICE);
-        if (StringUtils.isEmpty(st))
-            return true;
-        else
-            return StringUtils.toBool(st);
+
+        return StringUtils.isEmpty(st) || StringUtils.toBool(st);
     }
 
     public String getHost() {
@@ -375,27 +367,19 @@ public abstract class MainApplication extends Application {
 
     public boolean isSave() {
         String st = getProperty(AppConfig.CONF_ISSAVE);
-        if (StringUtils.isEmpty(st))
-            return true;
-        else
-            return StringUtils.toBool(st);
+        return StringUtils.isEmpty(st) || StringUtils.toBool(st);
     }
 
     /**
      * 是否启用服务端记录日志,默认不记录
-     * @return
      */
     public boolean isUseWeblog() {
         String st = getProperty(AppConfig.CONF_USE_WEBLOG);
-        if (StringUtils.isEmpty(st))
-            return false;
-        else
-            return StringUtils.toBool(st);
+        return !StringUtils.isEmpty(st) && StringUtils.toBool(st);
     }
 
     /**
      * 检测网络是否可用
-     * @return
      */
     public boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -433,6 +417,7 @@ public abstract class MainApplication extends Application {
     public String getImageFileDir() {
         String dir = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + getPackageName()
                 + File.separator + "images";
+        Logger.d(dir);
 
         return dir;
     }
@@ -445,13 +430,10 @@ public abstract class MainApplication extends Application {
      * 退出应用程序
      */
     public static void AppExit(Context context) {
-        try {
-            //finishAllActivity();
-            ActivityManager activityMgr = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-            activityMgr.restartPackage(context.getPackageName());
-            System.exit(0);
-        } catch (Exception e) {
-        }
+        //finishAllActivity();
+        ActivityManager activityMgr = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        activityMgr.restartPackage(context.getPackageName());
+        System.exit(0);
     }
 
     public static boolean isDebuggable(Context c) {
@@ -461,8 +443,6 @@ public abstract class MainApplication extends Application {
     /**
      * 发送App异常崩溃报告
      *
-     * @param cont
-     * @param crashReport
      */
     public static void sendAppCrashReport(final Context cont, final String crashReport) {
         AlertDialog.Builder builder = new AlertDialog.Builder(cont);
@@ -496,8 +476,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 判断当前版本是否兼容目标版本的方法
-     * @param VersionCode
-     * @return
      */
     public static boolean isMethodsCompat(int VersionCode) {
         int currentVersion = android.os.Build.VERSION.SDK_INT;
@@ -555,8 +533,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 判断缓存数据是否可读
-     * @param cachefile
-     * @return
      */
     private boolean isReadDataCache(String cachefile) {
         return readObject(cachefile) != null;
@@ -564,8 +540,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 判断缓存是否存在
-     * @param cachefile
-     * @return
      */
     private boolean isExistDataCache(String cachefile) {
         boolean exist = false;
@@ -577,8 +551,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 判断缓存是否失效
-     * @param cachefile
-     * @return
      */
     public boolean isCacheDataFailure(String cachefile) {
         boolean failure = false;
@@ -622,8 +594,7 @@ public abstract class MainApplication extends Application {
     /**
      * 清除缓存目录
      * @param dir 目录
-     * @param numDays 当前系统时间
-     * @return
+     * @param curTime 当前系统时间
      */
     private int clearCacheFolder(File dir, long curTime) {
         int deletedFiles = 0;
@@ -648,8 +619,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 将对象保存到内存缓存中
-     * @param key
-     * @param value
      */
     public void setMemCache(String key, Object value) {
         memCacheRegion.put(key, value);
@@ -657,8 +626,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 从内存缓存中获取对象
-     * @param key
-     * @return
      */
     public Object getMemCache(String key) {
         return memCacheRegion.get(key);
@@ -666,8 +633,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 保存磁盘缓存
-     * @param key
-     * @param value
      * @throws IOException
      */
     public void setDiskCache(String key, String value) throws IOException {
@@ -679,16 +644,14 @@ public abstract class MainApplication extends Application {
         } finally {
             try {
                 fos.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
+                Logger.e("");
             }
         }
     }
 
     /**
      * 获取磁盘缓存数据
-     * @param key
-     * @return
-     * @throws IOException
      */
     public String getDiskCache(String key) throws IOException {
         FileInputStream fis = null;
@@ -700,16 +663,14 @@ public abstract class MainApplication extends Application {
         } finally {
             try {
                 fis.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
+                Logger.e("fis.close,error");
             }
         }
     }
 
     /**
      * 保存对象
-     * @param ser
-     * @param file
-     * @throws IOException
      */
     public boolean saveObject(Serializable ser, String file) {
         FileOutputStream fos = null;
@@ -726,20 +687,19 @@ public abstract class MainApplication extends Application {
         } finally {
             try {
                 oos.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
+                Logger.e("oos.close, error");
             }
             try {
                 fos.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
+                Logger.e("");
             }
         }
     }
 
     /**
      * 读取对象
-     * @param file
-     * @return
-     * @throws IOException
      */
     public Serializable readObject(String file) {
         if (!isExistDataCache(file))
@@ -751,6 +711,7 @@ public abstract class MainApplication extends Application {
             ois = new ObjectInputStream(fis);
             return (Serializable) ois.readObject();
         } catch (FileNotFoundException e) {
+            Logger.e("");
         } catch (Exception e) {
             e.printStackTrace();
             //反序列化失败 - 删除缓存文件
@@ -761,11 +722,13 @@ public abstract class MainApplication extends Application {
         } finally {
             try {
                 ois.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
+                Logger.e("");
             }
             try {
                 fis.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
+                Logger.e("");
             }
         }
         return null;
@@ -798,7 +761,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 获取内存中保存图片的路径
-     * @return
      */
     public String getSaveImagePath() {
         return saveImagePath;
@@ -806,7 +768,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * 设置内存中保存图片的路径
-     * @return
      */
     public void setSaveImagePath(String saveImagePath) {
         this.saveImagePath = saveImagePath;
@@ -844,7 +805,6 @@ public abstract class MainApplication extends Application {
 
     /**
      * Adds session cookie to headers if exists.
-     * @param headers
      */
     public final void addSessionCookie(Map<String, String> headers) {
         String sessionId = _preferences.getString(SESSION_COOKIE, "");

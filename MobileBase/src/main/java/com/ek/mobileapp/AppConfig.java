@@ -2,7 +2,9 @@ package com.ek.mobileapp;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 import android.annotation.SuppressLint;
@@ -10,6 +12,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+
+import com.ek.mobileapp.utils.Logger;
 
 /**
  * 应用程序配置类：用于保存用户相关信息及设置
@@ -90,11 +94,14 @@ public class AppConfig {
             fis = new FileInputStream(dirConf.getPath() + File.separator + APP_CONFIG);
 
             props.load(fis);
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
+            Logger.e("file not found");
+        } catch (IOException e) {
+            Logger.e("");
         } finally {
             try {
                 fis.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
             }
         }
         return props;
@@ -118,7 +125,7 @@ public class AppConfig {
         } finally {
             try {
                 fos.close();
-            } catch (Exception e) {
+            } catch (IOException e) {
             }
         }
     }
