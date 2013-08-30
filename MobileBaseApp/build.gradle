@@ -29,6 +29,13 @@ android {
     compileSdkVersion 18
     buildToolsVersion "18.0.1"
 
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 14
+        //versionCode VERSION_CODE
+        //versionName VERSION_NAME
+    }
+
     signingConfigs {
         mykeystore {
             storeFile file("../android.keystore")
