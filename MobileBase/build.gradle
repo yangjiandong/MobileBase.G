@@ -1,0 +1,43 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+    }
+}
+apply plugin: 'android-library'
+
+def localMavenRepo = 'file://' + new File('D:/HOME/local/repo').absolutePath
+repositories {
+    mavenRepo url: localMavenRepo
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:18.0.+'
+    compile project(':extras:sshapp-mobileCommon')
+    compile files('libs/fastjson-1.1.31.jar')
+    compile files('libs/guava-collections-r03.jar')
+    compile files('libs/httpmime-4.1.1.jar')
+}
+
+tasks.withType(Compile) {
+    options.encoding = "UTF-8"
+}
+
+//String VERSION_NAME = "v1.2.0"
+//int VERSION_CODE = 2
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion "18.0.1"
+
+    defaultConfig {
+        //minSdkVersion 14
+        //targetSdkVersion 14
+        //versionCode VERSION_CODE
+        //versionName VERSION_NAME
+    }
+
+}

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="title_bar_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="title_bar_secondary_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffcccccc</item>
+    </style>
+    <style name="tablet_menu_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffdae0e6</item>
+    </style>
+    <style name="icon_action_item" parent="@*android:style/TextAppearance.Small">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff4b5d6e</item>
+    </style>
+    <style name="tablet_tab_text" parent="@*android:style/TextAppearance.Small">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff334455</item>
+    </style>
+    <style name="vbutton_text_dark" parent="@*android:style/TextAppearance">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+    <style name="vbutton_text_dark_large" parent="@*android:style/TextAppearance.Large">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+    <style name="vbutton_text_light" parent="@*android:style/TextAppearance">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="vbutton_text_medium" parent="@*android:style/TextAppearance">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff888888</item>
+    </style>
+    <style name="vbutton_text_medium_large" parent="@*android:style/TextAppearance.Large">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff888888</item>
+    </style>
+    <style name="vbutton_text_light_large" parent="@*android:style/TextAppearance.Large">
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="tile_list_title_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff4c566c</item>
+    </style>
+    <style name="tile_list_subtitle_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">#ff5b7182</item>
+    </style>
+    <style name="tile_list_pagination_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="list_item_title" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+    <style name="list_item_title_light" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="search_query_item" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+    <style name="title_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+    <style name="subtitle_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">#ff333333</item>
+    </style>
+    <style name="subtitle_text_light" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">#ffededed</item>
+    </style>
+    <style name="video_details_title" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+    <style name="video_details_byline" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">#ff6b7882</item>
+    </style>
+    <style name="stats_icon_label" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">#ff6b7882</item>
+    </style>
+    <style name="description_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textColor">#ff222222</item>
+    </style>
+    <style name="stats_count_label" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="stats_unit_label" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <style name="progress_bar_text" parent="@*android:style/TextAppearance">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+</resources>

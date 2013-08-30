@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headview"
+    style="@style/ListCategoryItem"
+    android:clickable="true"
+    android:duplicateParentState="false" >
+
+    <TextView
+        android:id="@+id/list_category_title"
+        style="@style/MainLinkText"
+        android:layout_width="230.0dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:duplicateParentState="false"
+        android:singleLine="true"
+        android:textSize="14.0sp" />
+
+    <ImageView
+        android:id="@+id/privacy_net_all_3g"
+        android:layout_width="40.0dip"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/privacy_net_all_wifi"
+        android:focusable="false"
+        android:src="@drawable/privacy_net_2g3g"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/list_category_count"
+        android:layout_width="34.0sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15.0dip"
+        android:duplicateParentState="false"
+        android:gravity="center"
+        android:textSize="11.0sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/privacy_net_all_wifi"
+        android:layout_width="40.0dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8.0dip"
+        android:focusable="false"
+        android:src="@drawable/privacy_net_wifi"
+        android:visibility="gone" />
+
+</RelativeLayout>

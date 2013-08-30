@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/watcher_widget32"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="60.0dip"
+    android:layout_marginLeft="10.0dip"
+    android:layout_marginRight="10.0dip"
+    android:layout_marginTop="60.0dip"
+    android:background="@color/transparent_color"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/topPanel"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@drawable/alert_dialog_title_bg"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.android.internal.widget.DialogTitle
+            android:id="@+id/alertTitle"
+            style="@style/DialogTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5.0dip"
+            android:ellipsize="end"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/alert_dialog_body_bg"
+        android:minWidth="280.0dip"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/install_spy_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/file_install_bottom_button"
+        android:layout_width="fill_parent"
+        android:layout_height="60.0dip"
+        android:background="@drawable/bottom_button_background"
+        android:orientation="horizontal"
+        android:paddingBottom="10.0dip"
+        android:paddingLeft="20.0dip"
+        android:paddingRight="20.0dip"
+        android:paddingTop="10.0dip" >
+
+        <Button
+            android:id="@+id/custom_btn_left"
+            android:layout_width="0.0dip"
+            android:layout_height="40.0dip"
+            android:layout_marginLeft="0.0dip"
+            android:layout_marginRight="0.0dip"
+            android:layout_marginTop="0.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/alert_dialog_btn_positive_bg"
+            android:maxLines="2"
+            android:textColor="@color/install_monitor_left_btn_text_color"
+            android:textSize="18.0sp" />
+
+        <ImageView
+            android:id="@+id/btn_divider2"
+            android:layout_width="wrap_content"
+            android:layout_height="40.0dip"
+            android:layout_marginLeft="0.0dip"
+            android:layout_marginRight="0.0dip"
+            android:paddingBottom="1.0dip"
+            android:scaleType="fitXY"
+            android:src="@drawable/alert_dialog_btn_divider" />
+
+        <Button
+            android:id="@+id/custom_btn_right"
+            android:layout_width="0.0dip"
+            android:layout_height="40.0dip"
+            android:layout_marginLeft="0.0dip"
+            android:layout_marginRight="0.0dip"
+            android:layout_marginTop="0.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/alert_dialog_btn_negative_bg"
+            android:maxLines="2"
+            android:textColor="@color/common_btn_text_color_selector"
+            android:textSize="18.0sp" />
+    </LinearLayout>
+
+</LinearLayout>

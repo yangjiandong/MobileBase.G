@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/logon_lbl_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dip"
+                android:layout_marginTop="25dip"
+                android:text="用户名"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/logon_username"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_alignTop="@id/logon_lbl_username"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/logon_lbl_username"
+                android:contentDescription="请输入用户名"
+                android:singleLine="true" >
+
+                <requestFocus />
+            </EditText>
+
+            <ImageButton
+                android:id="@+id/user_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/logon_username"
+                android:layout_toRightOf="@id/logon_username"
+                android:src="@drawable/user_set" />
+
+            <EditText
+                android:id="@+id/logon_password"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@id/logon_username"
+                android:layout_below="@id/logon_username"
+                android:layout_marginTop="15dip"
+                android:password="true"
+                android:singleLine="true" />
+
+            <CheckBox
+                android:id="@+id/logon_save_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logon_password"
+                android:layout_marginLeft="72dip"
+                android:layout_marginTop="-5dip"
+                android:text="保存密码"
+                android:textSize="15dp"
+                android:typeface="sans" />
+
+            <Button
+                android:id="@+id/logon_ok"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignRight="@+id/user_set"
+                android:layout_below="@+id/logon_save_password"
+                android:background="@drawable/alert_dialog_single_btn_bg"
+                android:text=" 确 定"
+                android:textSize="16.0sp" />
+
+            <Button
+                android:id="@+id/logon_cancel"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_alignBaseline="@+id/logon_ok"
+                android:layout_alignBottom="@+id/logon_ok"
+                android:layout_alignLeft="@+id/logon_lbl_password"
+                android:background="@drawable/alert_dialog_single_btn_bg"
+                android:text="取 消 "
+                android:textSize="16.0sp" />
+
+            <TextView
+                android:id="@+id/logon_lbl_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/logon_lbl_username"
+                android:layout_alignTop="@+id/logon_password"
+                android:text="密码"
+                android:textSize="15dp" />
+        </RelativeLayout>

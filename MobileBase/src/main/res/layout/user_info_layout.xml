@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting_round"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="0.0dip"
+    android:background="@drawable/main_background"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/custom_title_layout" />
+
+    <ScrollView
+        android:id="@+id/user_info_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fadingEdge="none"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15.0dip" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/user_info_userface"
+                    android:layout_width="170dip"
+                    android:layout_height="170dip"
+                    android:background="@drawable/widget_dface_border"
+                    android:clickable="true"
+                    android:padding="3.0dip"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/widget_dface" />
+
+                <ImageView
+                    android:id="@+id/user_info_gender"
+                    android:layout_width="18dip"
+                    android:layout_height="18dip"
+                    android:layout_alignBottom="@id/user_info_userface"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_toRightOf="@id/user_info_userface"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/widget_gender_man" />
+
+                <TextView
+                    android:id="@+id/user_info_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/user_info_gender"
+                    android:layout_alignLeft="@id/user_info_gender"
+                    android:layout_marginBottom="10.0dip"
+                    android:textColor="#0e5986"
+                    android:textSize="15.0dip" />
+
+                <Button
+                    android:id="@+id/user_info_editer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/btn_selector"
+                    android:text="编辑头像"
+                    android:textSize="12.0dip" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/table_above_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:duplicateParentState="true"
+                    android:text="所在病区："
+                    android:textColor="@color/grayslate"
+                    android:textSize="15.0dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/user_info_department"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_weight="1"
+                    android:duplicateParentState="true"
+                    android:textColor="#ff000000"
+                    android:textSize="14.0dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_mid_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:duplicateParentState="true"
+                    android:text=""
+                    android:textColor="@color/grayslate"
+                    android:textSize="15.0dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/user_info_job"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_weight="1"
+                    android:duplicateParentState="true"
+                    android:textColor="#ff000000"
+                    android:textSize="14.0dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/table_below_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:duplicateParentState="true"
+                    android:text=""
+                    android:textColor="@color/grayslate"
+                    android:textSize="15.0dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/user_info_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10.0dip"
+                    android:layout_weight="1"
+                    android:duplicateParentState="true"
+                    android:textColor="#ff000000"
+                    android:textSize="14.0dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

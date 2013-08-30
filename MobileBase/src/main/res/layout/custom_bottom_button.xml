@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custom_bottom_button"
+    android:layout_width="fill_parent"
+    android:layout_height="60.0dip"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/bottom_button_background"
+    android:orientation="horizontal"
+    android:paddingBottom="10.0dip"
+    android:paddingLeft="20.0dip"
+    android:paddingRight="20.0dip"
+    android:paddingTop="10.0dip" >
+
+    <Button
+        android:id="@+id/custom_btn_left"
+        android:layout_width="0.0dip"
+        android:layout_height="40.0dip"
+        android:layout_marginLeft="0.0dip"
+        android:layout_marginRight="0.0dip"
+        android:layout_marginTop="0.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/alert_dialog_btn_positive_bg"
+        android:maxLines="2"
+        android:textColor="@color/common_btn_text_color_selector"
+        android:textSize="18.0sp" />
+
+    <ImageView
+        android:id="@+id/custom_between_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40.0dip"
+        android:layout_marginLeft="0.0dip"
+        android:layout_marginRight="0.0dip"
+        android:paddingBottom="1.0dip"
+        android:scaleType="fitXY"
+        android:src="@drawable/alert_dialog_btn_divider" />
+
+    <Button
+        android:id="@+id/custom_btn_right"
+        android:layout_width="0.0dip"
+        android:layout_height="40.0dip"
+        android:layout_marginLeft="0.0dip"
+        android:layout_marginRight="0.0dip"
+        android:layout_marginTop="0.0dip"
+        android:layout_weight="1.0"
+        android:background="@drawable/alert_dialog_btn_negative_bg"
+        android:maxLines="2"
+        android:textColor="@color/common_btn_text_color_selector"
+        android:textSize="18.0sp" />
+
+</LinearLayout>

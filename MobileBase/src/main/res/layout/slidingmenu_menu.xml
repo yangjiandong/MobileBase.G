@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ScrollView
+        android:id="@+id/main_more_scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/main_more_bg"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/main_more_goto_main"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_more_header_bg_selector"
+                android:drawableLeft="@drawable/go_to_main_icon"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/main_more_content_margin_left"
+                android:text="main_more_goto_main"
+                android:textAppearance="@style/MainMoreContentText" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_more_caption_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/main_more_caption_margin_left"
+                android:text="main_more_monitor"
+                android:textAppearance="@style/MainMoreCaptionText" />
+
+            <RelativeLayout
+                android:id="@+id/main_more_notify_message_manager"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_more_item_bg_selector" >
+
+                <TextView
+                    android:id="@+id/main_more_notify_message_manager_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/main_more_content_margin_left"
+                    android:text="main_more_notify_message_manager"
+                    android:textAppearance="@style/MainMoreContentText" />
+
+                <ImageView
+                    android:id="@+id/main_setting_notify_message_manager_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="2.0dip"
+                    android:layout_toRightOf="@id/main_more_notify_message_manager_text"
+                    android:background="@drawable/main_setting_notify_message_manager_new" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:drawableRight="@drawable/main_more_arrow"
+                    android:text="summary_on"
+                    android:textColor="@color/transparent_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/main_more_intercept_log"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_more_item_bg_selector" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/main_more_content_margin_left"
+                    android:text="main_more_intercept_log"
+                    android:textAppearance="@style/MainMoreContentText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:drawableRight="@drawable/main_more_arrow"
+                    android:text="summary_on"
+                    android:textColor="@color/transparent_color" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/main_more_spy_action"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_more_item_bg_selector" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/main_more_content_margin_left"
+                    android:text="spy_software_behavior_switcher"
+                    android:textAppearance="@style/MainMoreContentText" />
+
+                <TextView
+                    android:id="@+id/spy_software_summary_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:drawableRight="@drawable/main_more_arrow"
+                    android:text="summary_on" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/main_more_feedback"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_more_item_bg_selector"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/main_more_content_margin_left"
+                android:text="main_more_feedback"
+                android:textAppearance="@style/MainMoreContentText" />
+
+            <TextView
+                android:id="@+id/main_more_share_friends"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_more_item_bg_selector"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/main_more_content_margin_left"
+                android:text="main_more_share_friends"
+                android:textAppearance="@style/MainMoreContentText" />
+
+            <TextView
+                android:id="@+id/main_more_about"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/main_more_item_bg_selector"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/main_more_content_margin_left"
+                android:text="main_more_about"
+                android:textAppearance="@style/MainMoreContentText" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/main_more_shadow"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/shadow" />
+
+</RelativeLayout>

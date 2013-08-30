@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@id/topPanel"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/custom_title_height"
+        android:background="@drawable/alert_dialog_title_bg"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.android.internal.widget.DialogTitle
+            android:id="@id/alertTitle"
+            style="@style/DialogTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5.0dip"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="用户切换" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/user_list_currentUserLabel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:text="当前用户"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/user_list_currentUser"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:textSize="20dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/title_user_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:text="本机登录用户"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/user_list"
+        style="@style/ListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+</LinearLayout>

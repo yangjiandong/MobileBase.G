@@ -1,0 +1,31 @@
+TODO
+====
+
+== 2013.08.22 ==
+
+- 参考dribbo 实现多项目共享数据机制
+
+== 2013.08.02 ==
+
+- 设置界面选择开关在大屏幕上变形
+- 圆形ImageView显示效果
+
+== 2013.07.16 ==
+
+- android4.2.2 不支持清除webview缓存
+ - import android.webkit.CacheManager in android 4.2.2
+
+- 王亚青
+ - 登录界面
+ - 更新历史显示格式
+
+== 2013.07.12 ==
+
+- 考虑两种登录会话方式
+ - 每次必须登录
+ - 登录成功后,手机保持登录信息,下次使用时直接可以会话,一般社区应用场景
+
+- oschina Setting 清除缓存
+
+- oschina 截图
+ - ScreenShotView UIHelper.showShareDialog

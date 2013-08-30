@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting_round"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="0.0dip"
+    android:background="@drawable/main_background"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/custom_title_layout" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="0.0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <include
+                android:id="@+id/user_setting_cate"
+                layout="@layout/list_category_item" />
+
+            <RelativeLayout
+                android:id="@+id/goto_password_list"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="修改密码" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/privacy_category_arrow" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/goto_info_list"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="用户信息" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/privacy_category_arrow" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/system_setting_cate"
+                layout="@layout/list_category_item" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="启用语音提示" />
+
+                <com.ek.mobileapp.widget.KsToggleButton
+                    android:id="@+id/setting_use_vocie"
+                    style="@style/KsToggleButton"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textOff="否"
+                    android:textOn="是" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="服务器是否记录调试日志" />
+
+                <com.ek.mobileapp.widget.KsToggleButton
+                    android:id="@+id/setting_weblog"
+                    style="@style/KsToggleButton"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textOff="否"
+                    android:textOn="是" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/goto_server_list"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="访问服务端地址" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/privacy_category_arrow" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/goto_bluetooth_type_list"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="蓝牙连接类型" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/privacy_category_arrow" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/goto_bluetooth_device_list"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="蓝牙匹配设备" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/privacy_category_arrow" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <include
+                android:id="@+id/system_message_cate"
+                layout="@layout/list_category_item" />
+
+            <RelativeLayout
+                android:id="@+id/goto_update_log_list"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="更新历史" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/privacy_category_arrow" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/goto_about_list"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="关于" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:background="@drawable/privacy_category_arrow" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/cache_list"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip" >
+
+                <TextView
+                    style="@style/ListItemTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:text="缓存" />
+
+                <TextView
+                    android:id="@+id/cache"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20.0dip"
+                    android:text="0" />
+
+                <ImageView
+                    style="@style/HorizontalSolidDivider"
+                    android:layout_alignParentBottom="true" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

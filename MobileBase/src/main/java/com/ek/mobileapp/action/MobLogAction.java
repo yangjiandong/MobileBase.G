@@ -1,0 +1,152 @@
+package com.ek.mobileapp.action;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.alibaba.fastjson.JSON;
+import com.ek.mobileapp.MainApplication;
+import com.ek.mobileapp.model.MobLogDTO;
+import com.ek.mobileapp.model.UserDTO;
+import com.ek.mobileapp.utils.GlobalCache;
+import com.ek.mobileapp.utils.HttpTool;
+import com.ek.mobileapp.utils.UtilString;
+import com.ek.mobileapp.utils.ViewUtils;
+import com.ek.mobileapp.utils.WebUtils;
+
+public class MobLogAction {
+    private static MobLogAction me = null;
+    private static ExecutorService pool;
+    static {
+        pool = Executors.newFixedThreadPool(5); //固定线程池
+    }
+
+    public static MobLogAction getMobLogAction() {
+        if (me == null) {
+            me = new MobLogAction();
+        }
+        return me;
+    }
+
+    //
+    private int mobLog(String event, String infos, String type) {
+        UserDTO u = GlobalCache.getCache().getLoginuser();
+        if (u == null)
+            return WebUtils.WEBERROR;
+        String lastIp = GlobalCache.getCache().getLastIp();
+        String hostIp = GlobalCache.getCache().getHostIp();
+
+        List<NameValuePair> params = new ArrayList<NameValuePair>();
+        MobLogDTO mlog = new MobLogDTO();
+        mlog.setUserId(u.getId());
+        mlog.setEvent(event);
+        mlog.setType(type);
+        mlog.setNetIp(lastIp);
+        //mobile info
+        mlog.setFrom("");
+        mlog.setNote(infos);
+        params.add(new BasicNameValuePair("infos", JSON.toJSONString(mlog)));
+
+        String url = "http://" + hostIp + WebUtils.MOBLOG;
+        JSONObject res = HttpTool.getTool().post(url, params);
+        if (res == null)
+            return WebUtils.WEBERROR;
+        try {
+            if (!res.getBoolean("success")) {
+                return WebUtils.LOGINERROR;
+            }
+            return WebUtils.SUCCESS;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return WebUtils.APPLICATIONERROR;
+        }
+    }
+
+    //暂时有问题
+    //蓝牙服务调用时报
+    //Can't create handler inside thread that has not called Looper.prepare()
+    private class MobLogTask2 extends AsyncTask<String, Void, Integer> {
+        protected Integer doInBackground(String... params) {
+            //Looper.prepare();
+
+            String event = params[0];
+            String infos = params[1];
+            String type = params[2];
+            mobLog(event, infos, type);
+
+            //Looper.loop();
+            return 1;
+        }
+
+        protected void onPostExecute(String result) {
+            //textView.setText(result);
+        }
+    }
+
+    public void mobLogInfo(MainApplication appContext, String event, String infos) {
+        infos = UtilString.isBlank(infos) ? "errors" : infos;
+        Log.i(event, infos);
+
+        if (!GlobalCache.getCache().isWebLog())
+            return;
+
+        ViewUtils.saveInfoLog(appContext, infos);
+
+        final String events = event;
+        final String infoss = infos;
+        Runnable runLog = new Runnable() {
+            public void run() { //
+                mobLog(events, infoss, "info");
+            }
+        };
+        pool.execute(runLog);
+    }
+
+    public void mobLogDebug(String event, String infos) {
+        if (!GlobalCache.getCache().isUseDebug())
+            return;
+
+        infos = UtilString.isBlank(infos) ? "debug" : infos;
+        Log.d(event, infos);
+
+        if (!GlobalCache.getCache().isWebLog())
+            return;
+
+        final String events = event;
+        final String infoss = infos;
+        Runnable runLog = new Runnable() {
+            public void run() { //
+                mobLog(events, infoss, "debug");
+            }
+        };
+        pool.execute(runLog);
+    }
+
+    public void mobLogError(String event, String infos) {
+        infos = UtilString.isBlank(infos) ? "errors" : infos;
+        Log.e(event, infos);
+
+        if (!GlobalCache.getCache().isWebLog())
+            return;
+
+        //ViewUtils.saveInfoLog(appContext, infos);
+
+        final String events = event;
+        final String infoss = infos;
+        Runnable runLog = new Runnable() {
+            public void run() { //
+                mobLog(events, infoss, "error");
+            }
+        };
+        pool.execute(runLog);
+    }
+}

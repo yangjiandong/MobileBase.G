@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_background"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <include layout="@layout/custom_title_layout" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip">
+
+        <LinearLayout
+            android:id="@+id/logon_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal" >
+
+            <include layout="@layout/logon_logo_panel" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40.0dip">
+
+        <LinearLayout
+            android:id="@+id/logon_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal" >
+
+            <include layout="@layout/logon_panel" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/app_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/botton_layout"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="2dp"
+            android:text="soft"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/app_info2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/botton_layout"
+            android:layout_alignParentRight="true"
+            android:paddingRight="2dp"
+            android:text="version"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/botton_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="30dip"
+            android:layout_alignParentBottom="true" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ekingsoft" />
+
+            <WebView
+                android:id="@+id/host_info"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

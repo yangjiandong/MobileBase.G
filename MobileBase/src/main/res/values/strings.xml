@@ -1,0 +1,43 @@
+<resources>
+
+    <string name="app_name">mobile工作站</string>
+    <string name="module_name">nurse</string>
+    <string name="appstart_title">鑫亿移动医疗</string>
+    <string name="about_content_rights_reserved">"Copyright©2012-%s 鑫亿软件
+All Rights Reserved."</string>
+    <!--  -->
+    <string name="common_settings">参数</string>
+    <string name="title_setting_preference">平台参数设置</string>
+    <string name="summary_setting_preference">参数设置</string>
+    <string name="setting_use_voice">启用语音提示</string>
+
+    <!-- ign -->
+    <string name="ign_error_report_email_subject">New error report: %s</string>
+    <string name="ign_error_report_send_button">Send Email</string>
+    <string name="ign_progress_dialog_title">数据装载中&#8230;</string>
+    <string name="ign_progress_dialog_msg">Please wait a moment</string>
+    <string name="ign_loc_dialog_wait_for_fix">Please wait while we try to determine your location. You can hit the back button to cancel anytime.</string>
+    <string name="ign_loc_dialog_location_unavailable_title">Location Unavailable</string>
+    <string name="ign_loc_dialog_location_unavailable_message">Please update your location settings by clicking \'Change Settings\'. For the best results, turn your GPS on (this will use more battery power and won\'t work indoors).</string>
+    <string name="ign_loc_dialog_location_unavailable_change_settings">Change Settings</string>
+    <string name="TxtLessThanOneHourAgo">Less than one hour ago</string>
+    <string name="TxtHoursAgo">hours ago</string>
+    <string name="TxtDaysAgo">days ago</string>
+
+    <string name="img_from_camera">手机拍照</string>
+    <string name="img_from_album">手机相册</string>
+    <string name="ui_insert_image">插入图片</string>
+
+    <!-- DeviceListActivity -->
+    <string name="scanning">扫描蓝牙设备...</string>
+    <string name="select_device">选择连接设备</string>
+    <string name="none_paired">没有配对设备</string>
+    <string name="none_found">没找到设备</string>
+    <string name="title_paired_devices">已存在的配对设备</string>
+    <string name="title_other_devices">有效设备</string>
+    <string name="button_scan">开始扫描设备</string>
+    <string name="user_update_pwd">用户更改密码</string>
+    <string name="refresh">Refresh</string>
+    <string name="error_followers_load">装载数据出错</string>
+
+</resources>

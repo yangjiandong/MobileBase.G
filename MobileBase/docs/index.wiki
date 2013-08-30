@@ -1,0 +1,213 @@
+%toc
+
+= mobile base app =
+
+== 2013.08.23 ==
+
+- 增加DataProvider,可共享数据,
+ - table 必须有_id 字段,HzDBInfo
+ - HzCursorListActivity
+ - 共享数据设置
+  - AndroidManifest.xml
+{{{
+        <provider
+            android:name="com.ek.mobileapp.dao.DataProvider"
+            android:authorities="com.eksoft.provider"
+            >
+        </provider>
+}}}
+  - 其他项目AndroidManifest.xml
+{{{
+    <uses-permission android:name="com.eksoft.provider"/>
+}}}
+
+== 2013.08.22 ==
+
+- 取消HttpTool cookie,由于采用了单实例,cookie无效
+- MainApplication 增加实例直接引用
+- 扩展volley StringRequest ,增加cookie信息
+
+== 2013.08.19 ==
+
+- 蓝牙设备通过MainApplication 管理,读取property值
+
+== 2013.08.08 ==
+
+- 增加vimeo ui
+ - widget/common
+ - widget/dashboard
+ - activity/AppActivity
+ - example DashboardActivity
+ - vimeo_colors.xml,vimeo_styles.xml
+
+== 2013.08.05 ==
+
+- 增加com.ek.mobileapp.widget.BezelImageView,原型效果图片显示
+ - hz_item.xml
+
+== 2013.08.02 ==
+
+- HttpTool 增加User-Agent
+- 增加CircleImageView,效果不好
+
+== 2013.07.31 ==
+
+- 调整AboutActivity
+
+== 2013.07.23 ==
+
+- 调整为lib,运行项目MobileBaseApp
+
+== 2013.07.19 ==
+
+- 取消指定图片存放目录 ((MainApplication)context.getApplicationContext()).getImageFileDir();
+
+== 2013.07.17 ==
+
+- 参考oschina,UserInfo.java,用户信息
+
+- oschina,UserInfoDialog
+
+== 2013.07.16 ==
+
+- 参考oschina,项目配置Preference,采用 property
+
+== 2013.07.12 ==
+
+- 文件位置
+ - 临时图片存放在/mnt/sdcard/package/save_images
+ - 日志 /mnt/sdcard/package/Log
+ - 其他信息,离线数据保存,配置等 /data/data/package
+  - Entity,HzList
+  - example: HzListActivity
+
+- 屏幕截图
+ - ImageDialog, ImageZoomDialog, ScreenShotShare, ScreenShotView
+ - UIHelper.addScreenShot
+ - MainActivity.shot
+
+- ListView 显示image
+ - HzAdapter, ApiClinet.getNetBitmap
+
+== 2013.07.11 ==
+
+- 简单listView 显示image
+ - HzAdapter,ImageUtils,BitmapManager
+ - 文件保存在 /mnt/sdcard/package/images
+
+- oschina
+ - 截屏 - ScreenShotView UIHelper.showShareDialog
+
+== 2013.07.09 ==
+
+- volley
+ - MainActivity,EndlessListActivity
+
+== 2013.07.08 ==
+
+- 图片截取 - 相机或图库
+ - ShootAndCropActivity
+
+== 2013.07.05 ==
+
+- widget
+ - ExampleAppWidgetProvider
+
+- Service bind
+ - UpdateUIService,MainActivity 与界面通信
+
+== 2013.07.04 ==
+
+- dao 处理
+ - ContentDao(Content) --> DAOHelper
+ - use
+{{{
+        ContentDAO dao = null;
+        //初始化数据
+        List<Content> list = new ArrayList<Content>();
+        try {
+            dao = new ContentDAO(this);
+            if (dao.count() == 0) {
+                for (int i = 0; i < 100; i++) {
+                    Content m;
+                    if (i < 23)
+                        m = new Content("A", "选项" + i);
+                    else if (i < 66)
+                        m = new Content("F", "选项" + i);
+                    else
+                        m = new Content("D", "选项" + i);
+                    //list.add(m);
+                    dao.save(m);
+                }
+            }
+
+            list = dao.findAllContent();
+        } catch (Exception e) {
+            com.ek.mobileapp.utils.Logger.e(e.getMessage());
+        } finally {
+            dao.close();
+        }
+}}}
+
+== 2013.07.01 ==
+
+- 仿毒霸设置 software_setting_layout.xml
+ - setting_layout.xml
+- 增加按字母索引的list
+ - LetterListActivity
+
+== 2013.06.29 ==
+
+- slidingMenu shadow.xml
+- 设置布局看参考duba main_activity_layout_more.xml
+
+== 2013.06.28 ==
+
+- 参考护士站首页生成按钮
+- 增加wishlist库 - com.github.kevinsawicki.wishlist
+- 增加slidingMenu
+
+== 2013.05.28 ==
+
+- 增加登录界面
+
+== 2013.05.24 ==
+
+- 显示圆角,背景透明,AppTheme
+{{{
+<item name="android:windowBackground">@color/transparent_color</item>
+}}}
+
+- 主界面圆角,sample_list.xml
+{{{
+android:background="@drawable/main_background"
+}}}
+
+- AppTheme -> android:Theme.Light,如采用 android:Theme.Light list字体颜色显示不出
+- 应用程序包 com.app
+ - MyApplication -> MainApplication
+ - MyAppStart -> AppStart
+
+- ignition - 合并source
+ - 暂时不采用ignition-support http处理,保留原有HttpTool单实例
+ - 分页显示 EndlessListActivity
+
+== 2013.05.23 ==
+
+- 仿手机毒霸样式
+- libs/ignition
+- git
+ - 更改下 remote
+{{{
+[remote "origin"]
+    url = git@github.com:yangjiandong/mobileBase.git
+}}}
+- vimwiki
+{{{
+let g:vimwiki_list = [{'path': 'D:/workspace/workspace_ssh/mobile/MobileBase/docs/',
+\ 'template_path': vimwiki_export_path.'yang.vimwiki-asserts.git/',
+\ 'template_default': 'yang-default',
+\ 'template_ext': '.html',
+\ 'vimwiki_index' : 'readme',
+\ 'auto_export': 1}]
+}}}

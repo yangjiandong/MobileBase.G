@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.5.+'
+    }
+}
+apply plugin: 'android'
+
+def localMavenRepo = 'file://' + new File('D:/HOME/local/repo').absolutePath
+repositories {
+    mavenRepo url: localMavenRepo
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:18.0.+'
+    compile project(':MobileBase')
+    compile files('libs/shoushuotts.jar')
+    compile files('libs/TTS_library_stub_3.0_market.jar')
+}
+
+tasks.withType(Compile) {
+    options.encoding = "UTF-8"
+}
+
+android {
+    compileSdkVersion 18
+    buildToolsVersion "18.0.1"
+
+    signingConfigs {
+        mykeystore {
+            storeFile file("../android.keystore")
+            storePassword "123456789"
+            keyAlias "android.keystore"
+            keyPassword "123456789"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.mykeystore
+            runProguard true
+            proguardFile '../proguard.cfg'
+
+        }
+    }
+}

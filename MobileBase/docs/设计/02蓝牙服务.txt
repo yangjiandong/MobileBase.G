@@ -1,0 +1,65 @@
+蓝牙服务
+========
+
+设计
+----
+
+    通过消息传送实现读取和发送数据到蓝牙设备
+
+    服务端:
+    BlueToothService
+
+        启动蓝牙连接
+        onStartCommand
+
+        发送消息
+        sendReader
+
+        接受消息
+        CommandReceiver
+
+    客户端:
+    BroadcastActivity
+
+        启动服务
+        onCreate
+        startService(blueToothService);
+
+        注册消息
+        receiver = new MyReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(BlueToothService.CMD_ACTION);
+        BroadcastActivity.this.registerReceiver(receiver, filter);
+
+        消息发送及读取
+    //接受服务信息
+    public class MyReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(BlueToothService.CMD_ACTION)) {
+                Bundle bundle = intent.getExtras();
+                int cmd = bundle.getInt("cmd");
+
+                if (cmd == BlueToothService.CMD_SEND_READER) {
+                    String str = bundle.getString("str");
+                    myTextView.setText(str);
+                }
+
+                if (cmd == BlueToothService.CMD_SEND_INFO) {
+                    String str = bundle.getString("str");
+                    if (str.equals("1")){
+                        blueToothStyle_conn(R.id.scan_barCode);
+                    }
+                }
+
+                else if (cmd == BlueToothService.CMD_SYSTEM_EXIT) {
+                    System.exit(0);
+                }
+
+            }
+        }
+    }
+
+        停止服务
+        onDestroy
+        stopService(blueToothService);

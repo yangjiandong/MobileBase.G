@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="grid_bg">#00000000</color>
+    <color name="preview_bg">#00000000</color>
+    <color name="white_background">#ffffffff</color>
+    <color name="light_background">#ffc5ccd4</color>
+    <color name="tablet_menu_rule">#66ffffff</color>
+    <color name="tablet_menu_rule_shadow">#4c000000</color>
+    <color name="list_bg">#ffffffff</color>
+    <color name="comment_reply_bg">#10000000</color>
+    <color name="account_details_bg">#ffffffff</color>
+    <color name="video_details_bg">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="divider">#22000000</color>
+    <color name="progress_bar">#ff555555</color>
+    <color name="progress_bar_outline">#ffffffff</color>
+    <color name="tablet_bar_gradient_top">#ffffffff</color>
+    <color name="tablet_bar_gradient_bottom">#fff0f1f2</color>
+    <color name="tablet_bar_border">#ff8d98b0</color>
+    <color name="tablet_bar_divider">#ffced5d9</color>
+    <color name="selection_gradient_top">#fff7b905</color>
+    <color name="selection_gradient_middle">#ffe99b00</color>
+    <color name="selection_gradient_bottom">#fff6b015</color>
+</resources>

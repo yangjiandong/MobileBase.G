@@ -1,0 +1,13 @@
+.svn
+/bin
+/gen
+/docs_html
+/mobilecommon
+/out
+/.idea
+/.gradle
+/.back
+
+.iml
+/*.iml
+build

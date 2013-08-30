@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ad_index_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffe9edf2" >
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffe9edf2"
+    android:orientation="vertical"
+    android:padding="8.0dip" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ad_index_item_selector"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/net_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="65.0dip"
+            android:background="@drawable/list_first_item_selector"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingLeft="15.0dip" >
+
+            <ImageView
+                android:id="@+id/privacy_net_icon"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/privacy_index_net_bg" />
+
+            <ImageView
+                android:id="@+id/arrow_net"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="10.0dip"
+                android:src="@drawable/privacy_category_arrow" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/arrow_net"
+                android:layout_toRightOf="@+id/privacy_net_icon" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    style="@style/ListItemSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="5.0dip"
+                    android:text="切换用户"
+                    android:textColor="#ff3f4040"
+                     />
+
+                <ImageView
+                    android:id="@+id/privacy_net_new_image"
+                    android:layout_width="30.0dip"
+                    android:layout_height="30.0dip"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="5.0dip"
+                    android:layout_toRightOf="@+id/textView1"
+                    android:src="@drawable/privacy_index_new_bg"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ImageView style="@style/HorizontalSolidDivider" />
+
+        <RelativeLayout
+            android:id="@+id/phonenumber_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="65.0dip"
+            android:background="@drawable/list_item_selector"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingLeft="15.0dip" >
+
+            <ImageView
+                android:id="@+id/privacy_phonenumber_icon"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/privacy_sort_phonenumber_press" />
+
+            <ImageView
+                android:id="@+id/arrow_phonenumber"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="10.0dip"
+                android:src="@drawable/privacy_category_arrow" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/arrow_phonenumber"
+                android:layout_toRightOf="@+id/privacy_phonenumber_icon" >
+
+                <TextView
+                    style="@style/ListItemSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="5.0dip"
+                    android:text="更改密码"
+                    android:textColor="#ff3f4040"
+                     />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ImageView style="@style/HorizontalSolidDivider" />
+
+        <RelativeLayout
+            android:id="@+id/gps_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="65.0dip"
+            android:background="@drawable/list_item_selector"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingLeft="15.0dip" >
+
+            <ImageView
+                android:id="@+id/privacy_sort_gps_icon"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/privacy_sort_location_press" />
+
+            <ImageView
+                android:id="@+id/arrow_gps"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="10.0dip"
+                android:src="@drawable/privacy_category_arrow" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/arrow_gps"
+                android:layout_toRightOf="@+id/privacy_sort_gps_icon" >
+
+                <TextView
+                    style="@style/ListItemSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="5.0dip"
+                    android:text="设置"
+                    android:textColor="#ff3f4040"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ImageView style="@style/HorizontalSolidDivider" />
+
+        <RelativeLayout
+            android:id="@+id/sms_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="65.0dip"
+            android:background="@drawable/list_item_selector"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingLeft="15.0dip" >
+
+            <ImageView
+                android:id="@+id/privacy_sort_sms_icon"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/privacy_sort_sms_press" />
+
+            <ImageView
+                android:id="@+id/arrow_sms"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="10.0dip"
+                android:src="@drawable/privacy_category_arrow" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/arrow_sms"
+                android:layout_toRightOf="@+id/privacy_sort_sms_icon" >
+
+                <TextView
+                    style="@style/ListItemSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="5.0dip"
+                    android:text="蓝牙"
+                    android:textColor="#ff3f4040"
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ImageView style="@style/HorizontalSolidDivider" />
+
+        <RelativeLayout
+            android:id="@+id/content_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="65.0dip"
+            android:background="@drawable/list_item_selector"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingLeft="15.0dip" >
+
+            <ImageView
+                android:id="@+id/privacy_sort_contact_icon"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/privacy_sort_contact_press" />
+
+            <ImageView
+                android:id="@+id/arrow_contact"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="10.0dip"
+                android:src="@drawable/privacy_category_arrow" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/arrow_contact"
+                android:layout_toRightOf="@+id/privacy_sort_contact_icon" >
+
+                <TextView
+                    style="@style/ListItemSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="5.0dip"
+                    android:text="更新历史"
+                    android:textColor="#ff3f4040"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ImageView style="@style/HorizontalSolidDivider" />
+
+        <RelativeLayout
+            android:id="@+id/history_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="65.0dip"
+            android:background="@drawable/list_item_selector"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:paddingLeft="15.0dip" >
+
+            <ImageView
+                android:id="@+id/privacy_sort_history_icon"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/privacy_sort_history_press" />
+
+            <ImageView
+                android:id="@+id/arrow_history"
+                style="@style/ListIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="10.0dip"
+                android:src="@drawable/privacy_category_arrow" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/arrow_history"
+                android:layout_toRightOf="@+id/privacy_sort_history_icon" >
+
+                <TextView
+                    style="@style/ListItemSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="5.0dip"
+                    android:text="关于"
+                    android:textColor="#ff3f4040"
+                    android:textSize="17.0dip" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ImageView style="@style/HorizontalSolidDivider" />
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

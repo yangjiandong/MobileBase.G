@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="red_text">#ffdc3c00</color>
+    <color name="red_backgroud">#fff1e5e5</color>
+    <color name="pc_connect_ng">#33000000</color>
+    <color name="custom_bg_gary">#ffe6ebf2</color>
+    <color name="moblie_safe_text_color">#ff339900</color>
+    <color name="primary_text_black_color">#ff000000</color>
+    <color name="primary_text_dark_gray_color">#ff626262</color>
+    <color name="dialog_blue_btn_text_color">#ff0072e5</color>
+    <color name="primary_text_gray_color">#7f000000</color>
+    <color name="primary_text_orange_color">#ffffa500</color>
+    <color name="primary_text_red_color">#ffff4500</color>
+    <color name="link_text_color">#ff4c89e0</color>
+    <color name="blue_number_color">#ff3b69a5</color>
+    <color name="red_number_color">#ffe85531</color>
+    <color name="deep_blue_text_color">#ff3c6aa6</color>
+    <color name="privacy_item_big_color">#ff636464</color>
+    <color name="privacy_item_small_color">#ffadacaf</color>
+    <color name="privacy_keep_num_color">#ffe57300</color>
+    <color name="privacy_cloud_txt_color">#ff0072df</color>
+    <color name="privacy_cloud_txt_press_color">#ff6cb0f5</color>
+    <color name="privacy_gray">#fff3f7fa</color>
+    <color name="privacy_dark_gray">#ff6c6f74</color>
+    <color name="noroot">#ffd92b00</color>
+    <color name="transparent_color">#00000000</color>
+    <color name="ad_item_click_color">#ff474747</color>
+    <color name="main_text_color_pressed">#ff98e446</color>
+    <color name="tab_pressed_font_color">#ff98e532</color>
+    <color name="risk_color">#ffd46609</color>
+    <color name="mal_color">#ffba3923</color>
+    <color name="defend_log_cat_bg">#aaedf0f4</color>
+    <color name="color_dark_gray">#ff5a5a5a</color>
+    <color name="listitem_transparent">#00000000</color>
+    <color name="listitem_black">#ff000000</color>
+    <color name="listitem_white">#ffffffff</color>
+    <color name="listitem_blue">#0e5986</color>
+    <color name="listitem_gray">#ff9da19e</color>
+    <color name="listitem_green">#ffe3ffc6</color>
+    <color name="listitem_greenyellow">#ff87b869</color>
+    <color name="listitem_yellow">#fffaffbf</color>
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="full_transparent">#00000000</color>
+    <color name="half_transparent">#aa000000</color>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="blue">#ff2890ff</color>
+    <color name="blue_gray">#ff6b8eb3</color>
+    <color name="black2">#cd000000</color>
+    <color name="gray">#DEDEDE</color>
+    <color name="red">#FF0000</color>
+    <color name="gold">#FFD700</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#008000</color>
+    <color name="purple">#800080</color>
+    <color name="pink">#FFC0CB</color>
+    <color name="orange">#FFA500</color>
+    <color name="lemonyellow">#FFFACD</color>
+    <color name="graywhite">#F5F5F5</color>
+    <color name="grayslate">#708090</color>
+    <color name="lightblue">#0083FF</color>
+    <color name="lightgray">#CCC</color>
+    <color name="dodgerblue">#0002A5</color>
+
+    <!-- Light风格时,全局背景颜色 -->
+    <color name="custom_list_text_color">#000000</color>
+
+</resources>

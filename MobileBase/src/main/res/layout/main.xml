@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_background"
+    android:orientation="vertical" >
+
+    <include layout="@layout/custom_title_layout" />
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/main_bottom"
+        android:layout_below="@id/custome_title_id"
+        android:fillViewport="true" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TableLayout
+                android:id="@+id/modules"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:stretchColumns="0,1,2" >
+
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <com.ek.mobileapp.widget.CustomImageButton
+                        android:id="@+id/main_p001_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/nurse_button0"
+                        android:text="列表" />
+
+                    <com.ek.mobileapp.widget.CustomImageButton
+                        android:id="@+id/main_p002_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/nurse_button0"
+                        android:text="btn_p002" />
+
+                    <com.ek.mobileapp.widget.CustomImageButton
+                        android:id="@+id/main_p003_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/menu_btn_background"
+                        android:src="@drawable/ico1a"
+                        android:text="btn_p003" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" >
+
+                    <com.ek.mobileapp.widget.CustomImageButton
+                        android:id="@+id/main_p021_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/menu_btn_background"
+                        android:src="@drawable/ico1a"
+                        android:text="p001" />
+
+                    <com.ek.mobileapp.widget.CustomImageButton
+                        android:id="@+id/main_p022_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/menu_btn_background"
+                        android:src="@drawable/ico1a"
+                        android:text="btn_p002" />
+
+                    <com.ek.mobileapp.widget.CustomImageButton
+                        android:id="@+id/main_p023_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/menu_btn_background"
+                        android:src="@drawable/ico1a"
+                        android:text="btn_p003" />
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="4dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp" >
+
+        <TextView
+            android:id="@+id/main_logonUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:textSize="17dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custome_title_id"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/custom_title_height"
+    android:background="@drawable/custom_title_background" >
+
+    <Button
+        android:id="@+id/custom_title_btn_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/title_btn_left_bg"
+        android:drawableTop="@drawable/back_icon" />
+
+    <TextView
+        android:id="@+id/main_update_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="22.0dip"
+        android:layout_marginTop="2.0dip"
+        android:background="@drawable/home_update_icon"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/custom_title_label"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20.0sp" />
+
+    <Button
+        android:id="@+id/custom_title_btn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/title_btn_right_bg"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/main_message_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="2.0dip"
+        android:layout_marginTop="2.0dip"
+        android:background="@drawable/message_count_icon"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/white"
+        android:textSize="8.0sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

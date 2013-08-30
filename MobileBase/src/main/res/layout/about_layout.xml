@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/setting_round"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="0.0dip"
+    android:background="@drawable/main_background"
+    android:clickable="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/custom_title_layout" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingLeft="15dip"
+        android:paddingRight="15dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dip"
+                android:src="@drawable/ic_launcher" >
+            </ImageView>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/about_app"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/appstart_title"
+                    android:textSize="30px"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/about_appversion"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingBottom="20dip"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:text="1"
+                    android:textSize="20px" >
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:src="@drawable/ekingsoft" >
+                    </ImageView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/about_commons"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:paddingTop="5dip"
+                android:text="about" >
+            </TextView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

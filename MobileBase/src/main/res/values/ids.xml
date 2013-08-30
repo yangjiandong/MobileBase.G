@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <item type="id" name="m01" />
+    <item type="id" name="m02" />
+    <item type="id" name="m03" />
+    <item type="id" name="m04" />
+    <item type="id" name="m05" />
+    <item type="id" name="m06" />
+    <item type="id" name="m07" />
+    <item type="id" name="m08" />
+    <item type="id" name="m09" />
+    <item type="id" name="m10" />
+    <item type="id" name="m11" />
+    <item type="id" name="m12" />
+
+    <item name="selected_view" type="id"/>
+</resources>
