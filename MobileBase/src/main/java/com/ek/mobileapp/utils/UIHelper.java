@@ -137,7 +137,7 @@ public class UIHelper {
     public static void showUserFace(final ImageView imgFace,
             final String faceURL) {
         showLoadImage(imgFace, faceURL,
-                imgFace.getContext().getString(R.string.msg_load_userface_fail));
+                imgFace.getContext().getString(R.string.msg_load_userface_fail),R.drawable.widget_dface,null);
     }
 
     /**
@@ -148,11 +148,11 @@ public class UIHelper {
      * @param errMsg
      */
     public static void showLoadImage(final ImageView imgView,
-            final String imgURL, final String errMsg) {
+            final String imgURL, final String errMsg, final int imgBlankId, final String url) {
         // 读取本地图片
         if (StringUtils.isEmpty(imgURL) || imgURL.endsWith("portrait.gif")) {
             Bitmap bmp = BitmapFactory.decodeResource(imgView.getResources(),
-                    R.drawable.widget_dface);
+                    imgBlankId);
             imgView.setImageBitmap(bmp);
             return;
         }
@@ -195,9 +195,17 @@ public class UIHelper {
             public void run() {
                 Message msg = new Message();
                 try {
-                    Bitmap bmp = ApiClient.getNetBitmap(imgURL);
-                    msg.what = 1;
-                    msg.obj = bmp;
+                    //
+                    if (StringUtils.isEmpty(url)) {
+                        Bitmap bmp = ApiClient.getNetBitmap(imgURL);
+                        msg.what = 1;
+                        msg.obj = bmp;
+                    }else{
+                        Bitmap bmp = ApiClient.getNetBitmapByUrl(url);
+                        msg.what = 1;
+                        msg.obj = bmp;
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                     msg.what = -1;

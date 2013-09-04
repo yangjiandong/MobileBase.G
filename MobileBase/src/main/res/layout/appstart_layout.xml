@@ -32,18 +32,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10.0dip"
         android:scaleType="fitXY"
-        android:src="@drawable/loading_des" />
-
-    <ImageView
-        android:id="@+id/loading_tx_myapp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/loading_copyright"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20.0dip"
-        android:scaleType="fitXY"
-        android:src="@drawable/loading_tx_myapp"
-        android:visibility="gone" />
+        android:src="@drawable/loading_des_r" />
 
     <TextView
         android:id="@+id/loading_copyright"

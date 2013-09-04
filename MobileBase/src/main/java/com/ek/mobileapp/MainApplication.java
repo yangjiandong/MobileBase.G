@@ -825,4 +825,22 @@ public abstract class MainApplication extends Application {
             Logger.d(headers.toString());
         }
     }
+
+    public String getConfTitle() {
+        String st = getProperty(AppConfig.CONF_TITLE_IMG);
+        if (StringUtils.isEmpty(st)) {
+            return "";
+        } else {
+            return st;
+        }
+    }
+
+    public String getConfCustomerImg() {
+        String st = getProperty(AppConfig.CONF_CUSTOMER_IMG);
+        if (StringUtils.isEmpty(st)) {
+            return "";
+        } else {
+            return st;
+        }
+    }
 }

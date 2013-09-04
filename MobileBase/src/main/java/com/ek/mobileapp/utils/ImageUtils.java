@@ -78,21 +78,9 @@ public class ImageUtils {
         FileOutputStream fos = context.openFileOutput(fileName,
                 Context.MODE_PRIVATE);
 
-        //String storageState = Environment.getExternalStorageState();
-        //if (storageState.equals(Environment.MEDIA_MOUNTED)) {
-        //    //String dir = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator
-        //    //        + context.getPackageName() + File.separator + "images";
-        //    String dir = ((MainApplication)context.getApplicationContext()).getImageFileDir();
-        //    File file = new File(dir);
-        //    if (!file.exists()) {
-        //        file.mkdirs();
-        //    }
-
-        //    fos = new FileOutputStream(dir + File.separator + fileName);
-        //}
-
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(CompressFormat.JPEG, quality, stream);
+        //bitmap.compress(CompressFormat.JPEG, quality, stream);
+        bitmap.compress(CompressFormat.PNG, quality, stream);//无损
         byte[] bytes = stream.toByteArray();
         fos.write(bytes);
         fos.close();

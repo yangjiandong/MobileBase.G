@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -18,13 +19,15 @@ import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -41,7 +44,6 @@ import com.app.example.service.UpdateUIService;
 import com.app.example.service.UpdateUIService.MyBinder;
 import com.ek.mobileapp.MainApplication;
 import com.ek.mobileapp.action.MobLogAction;
-import com.ek.mobileapp.activity.AppActivity;
 import com.ek.mobileapp.activity.SettingActivity;
 import com.ek.mobileapp.utils.DialogFactory;
 import com.ek.mobileapp.utils.DialogFactory.DialogCallbacks;
@@ -50,18 +52,17 @@ import com.ek.mobileapp.utils.Logger;
 import com.ek.mobileapp.utils.ToastUtils;
 import com.ek.mobileapp.utils.UIHelper;
 import com.ek.mobileapp.utils.UtilString;
-import com.ek.mobileapp.widget.CustomImageButton;
+import com.ek.mobileapp.widget.HomeImageButton;
 import com.ek.mobileapp.widget.ScreenShotView;
 import com.ek.mobileapp.widget.ScreenShotView.OnScreenShotListener;
 import com.ek.mobilebapp.R;
 
-public class MainActivity extends AppActivity {
+public class MainActivity extends Activity {
     ShakeListener mShakeListener = null;
     String menus = "01|列表,02|汉字,03|字母索引,04|图片截取,05|屏幕截图";
 
     TextView title;
     Button leftBtn;
-    ImageView shouye;
 
     Map<String, Integer> btns = new HashMap<String, Integer>();
     Map<String, Integer> btnsStyle = new HashMap<String, Integer>();
@@ -84,13 +85,25 @@ public class MainActivity extends AppActivity {
         }
     };
 
+    private int screenWidth;
+    private int scrollHeight;
+
+    private void getSize() {
+        RelativeLayout titleView = (RelativeLayout) findViewById(R.id.custome_title_id);
+        RelativeLayout userView = (RelativeLayout) findViewById(R.id.main_User_layout);
+
+        WindowManager windowManager = getWindowManager();
+        Display display = windowManager.getDefaultDisplay();
+        screenWidth = display.getWidth();
+        scrollHeight = display.getHeight() - titleView.getHeight() - userView.getHeight() - 20;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         createBtns();
-        //
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(MyAppResource.LayoutMain);
 
         //update to more icon
@@ -122,6 +135,9 @@ public class MainActivity extends AppActivity {
         Intent updateService = new Intent(this, UpdateUIService.class);
         bindService(updateService, conn, Context.BIND_AUTO_CREATE);
 
+        //
+        getSize();
+
         //volley
         RequestQueue queue = Volley.newRequestQueue(this);
         String ip = MainApplication.host_ip;
@@ -143,26 +159,19 @@ public class MainActivity extends AppActivity {
                 });
         queue.add(jsobjRequest);
 
-        //
-//        shouye = (ImageView) findViewById(R.id.main_botom_shouye);
-        shouye.setOnClickListener(clickListener);
-
         showUserPermission();
-        //
         sensorInit();
     }
 
     View.OnClickListener clickListener = new OnClickListener() {
         public void onClick(View v) {
+            Logger.d("click:" + v);
+
             //
             if (v.equals(leftBtn)) {
                 Logger.d("show Setting");
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);
                 startActivity(intent);
-            } else if (v.equals(shouye)) {
-                /* Make selected if user clicks and maintain the state urself*/
-                shouye.setFocusable(true);
-
             } else if (v.getId() == R.id.m01) {
                 Intent intent = new Intent(MainActivity.this, EndlessListActivity.class);
                 startActivity(intent);
@@ -247,15 +256,15 @@ public class MainActivity extends AppActivity {
         btns.put("11", R.id.m11);
         btns.put("12", R.id.m12);
 
-        btnsStyle.put("01", R.drawable.nurse_button0);
-        btnsStyle.put("02", R.drawable.nurse_button0);
-        btnsStyle.put("03", R.drawable.nurse_button0);
-        btnsStyle.put("04", R.drawable.nurse_button0);
-        btnsStyle.put("05", R.drawable.nurse_button0);
-        btnsStyle.put("06", R.drawable.nurse_button0);
-        btnsStyle.put("07", R.drawable.nurse_button0);
-        btnsStyle.put("08", R.drawable.nurse_button0);
-        btnsStyle.put("09", R.drawable.nurse_button0);
+        btnsStyle.put("01", R.drawable.home_grid_item_blue3);
+        btnsStyle.put("02", R.drawable.home_grid_item_green);
+        btnsStyle.put("03", R.drawable.home_grid_item_orange);
+        btnsStyle.put("04", R.drawable.home_grid_item_blue2);
+        btnsStyle.put("05", R.drawable.home_grid_item_red2);
+        btnsStyle.put("06", R.drawable.home_grid_item_purple);
+        btnsStyle.put("07", R.drawable.home_grid_item_yellow);
+        btnsStyle.put("08", R.drawable.home_grid_item_blue);
+        btnsStyle.put("09", R.drawable.home_grid_item_red);
         btnsStyle.put("10", R.drawable.nurse_button0);
         btnsStyle.put("11", R.drawable.nurse_button0);
         btnsStyle.put("12", R.drawable.nurse_button0);
@@ -293,10 +302,11 @@ public class MainActivity extends AppActivity {
 
                 Integer id = (Integer) btns.get(code);
                 if (id != null) {
-                    CustomImageButton bn = new CustomImageButton(getApplicationContext(), null);
+                    HomeImageButton bn = new HomeImageButton(getApplicationContext(), null);
                     bn.setId(btns.get(code));
                     bn.setSrc(this.btnsStyle.get(code));
                     bn.setText(module);
+                    bn.setSize((screenWidth) / count, scrollHeight / 6);
 
                     one.addView(bn);
 

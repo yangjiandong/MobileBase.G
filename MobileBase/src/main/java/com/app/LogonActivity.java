@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.widget.TextView;
 
 import com.app.example.DashboardActivity;
+import com.app.example.MainActivity;
 import com.ek.mobileapp.activity.AbstractLogonActivity;
 import com.ek.mobileapp.utils.UtilString;
 import com.ek.mobilebapp.R;
@@ -26,7 +27,7 @@ public class LogonActivity extends AbstractLogonActivity {
     protected void afterLogin() {
 
         if (UtilString.isBlank(moduleCode)) {
-            Intent intent = new Intent(LogonActivity.this, DashboardActivity.class);//MainActivity,MainListActivity.class);
+            Intent intent = new Intent(LogonActivity.this, MainActivity.class);//DashboardActivity,MainActivity,MainListActivity.class);
             startActivityForResult(intent, LOGINACTION);
         } else {
         }

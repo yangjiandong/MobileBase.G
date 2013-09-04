@@ -35,6 +35,23 @@ public class ApiClient {
         return bitmap;
     }
 
+    public static Bitmap getNetBitmapByUrl(String url) {
+        Bitmap bitmap = null;
+
+        try {
+            String ip = MainApplication.host_ip;
+            String httpUrl = "http://" + ip + url;
+            Logger.d("getNetTitleBitmap:" + httpUrl);
+            InputStream inStream = HttpTool.getTool().getFile(httpUrl);
+            bitmap = BitmapFactory.decodeStream(inStream);
+            inStream.close();
+        } catch (Exception e) {
+            Logger.e(e.getMessage());
+        }
+
+        return bitmap;
+    }
+
     public static boolean uploadImage(File fileName, String address) throws Exception {
 
         String ip = MainApplication.host_ip;

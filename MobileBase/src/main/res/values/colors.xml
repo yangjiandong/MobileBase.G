@@ -63,6 +63,10 @@
     <color name="lightblue">#0083FF</color>
     <color name="lightgray">#CCC</color>
     <color name="dodgerblue">#0002A5</color>
+    <color name="dark_green">#006400</color>
+    <color name="dialog_text">#cccccc</color>
+    <color name="opaque_red">#f00</color>
+    <color name="custom_grid_value_color">#009933</color>
 
     <!-- Light风格时,全局背景颜色 -->
     <color name="custom_list_text_color">#000000</color>

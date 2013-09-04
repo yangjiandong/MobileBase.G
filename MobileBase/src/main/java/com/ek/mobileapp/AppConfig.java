@@ -2,7 +2,6 @@ package com.ek.mobileapp;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -51,6 +50,10 @@ public class AppConfig {
     public final static String CONF_BLUETOOTHDEVICE_TYPE = "blueToothDevice_Type";
 
     public final static String SAVE_IMAGE_PATH = "save_image_path";
+
+    public final static String CONF_TITLE_IMG  = "conf_title_img";
+    public final static String CONF_CUSTOMER_IMG = "customer_img";
+
     @SuppressLint("NewApi")
     public final static String DEFAULT_SAVE_IMAGE_PATH = Environment.getExternalStorageDirectory() + File.separator
             + MainApplication.getMyPackageName() + File.separator + "images";
@@ -86,22 +89,16 @@ public class AppConfig {
         FileInputStream fis = null;
         Properties props = new Properties();
         try {
-            // 读取files目录下的config
-            // fis = activity.openFileInput(APP_CONFIG);
-
-            // 读取app_config目录下的config
             File dirConf = mContext.getDir(APP_CONFIG, Context.MODE_PRIVATE);
             fis = new FileInputStream(dirConf.getPath() + File.separator + APP_CONFIG);
 
             props.load(fis);
-        //} catch (FileNotFoundException e) {
-        //    Logger.e("file not found");
-        } catch (IOException e) {
+        } catch (Exception e) {
             Logger.e("");
         } finally {
             try {
                 fis.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
             }
         }
         return props;

@@ -137,7 +137,7 @@ public class LogonAction {
             GlobalCache.getCache().setBarcode_patient(res.getString("barcode_patient"));
             GlobalCache.getCache().setBarcode_orderno(res.getString("barcode_orderno"));
             GlobalCache.getCache().setBarcode_lis(res.getString("barcode_lisno"));
-
+            GlobalCache.getCache().setBarcode_outpatient(res.getString("barcode_outpatient"));
             return WebUtils.SUCCESS;
         } catch (JSONException e) {
             e.printStackTrace();

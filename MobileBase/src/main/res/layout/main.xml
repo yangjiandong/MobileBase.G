@@ -92,6 +92,7 @@
     </ScrollView>
 
     <RelativeLayout
+        android:id="@+id/main_User_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

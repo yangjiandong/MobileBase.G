@@ -2,13 +2,18 @@
 
 = mobile base app =
 
-== 2013.08.29 ==
+== 2013.09.04 ==
 
-- org.gradle.tooling.UnsupportedVersionException: The specified Gradle installation 'C:\Android\android-studio\plugins\gradle' is not supported by this tooling API version (1.7, protocol version 4): The specified Gradle installation 'C:\Android\android-studio\plugins\gradle' is not supported by this tooling API version (1.7, protocol version 4)
- - .idea\gradle.xml 取消
-{{{
-<option name="gradleHome" value="$APPLICATION_HOME_DIR$/plugins/gradle" />
-}}}
+- 首页增加读取服务端标语图片
+ - AppStart
+ - ApiClient
+ - ImageUtils
+ - UIHelper
+
+== 2013.09.03 ==
+
+- 增加metro 图标样式
+ - HomeImageButton
 
 == 2013.08.23 ==
 

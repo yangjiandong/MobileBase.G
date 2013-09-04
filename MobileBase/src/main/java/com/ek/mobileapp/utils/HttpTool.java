@@ -37,7 +37,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
-import android.content.SharedPreferences.Editor;
 import android.util.Log;
 
 import com.ek.mobileapp.MainApplication;
