@@ -28,6 +28,7 @@ import com.ek.mobileapp.model.UserDTO;
 import com.ek.mobileapp.utils.FileUtils;
 import com.ek.mobileapp.utils.GlobalCache;
 import com.ek.mobileapp.utils.ImageUtils;
+import com.ek.mobileapp.utils.Logger;
 import com.ek.mobileapp.utils.StringUtils;
 import com.ek.mobileapp.utils.ToastUtils;
 import com.ek.mobileapp.utils.UIHelper;

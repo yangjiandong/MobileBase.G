@@ -8,27 +8,24 @@
 
     <include layout="@layout/custom_title_layout" />
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10.0dip">
+        android:layout_gravity="center"
+        android:layout_margin="20.0dip"
+        android:gravity="center_horizontal" >
 
-        <LinearLayout
+        <ImageView
             android:id="@+id/logon_logo"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:gravity="center_horizontal" >
-
-            <include layout="@layout/logon_logo_panel" />
-        </LinearLayout>
-    </RelativeLayout>
+            />
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40.0dip">
+        android:layout_marginTop="40.0dip" >
 
         <LinearLayout
             android:id="@+id/logon_p"

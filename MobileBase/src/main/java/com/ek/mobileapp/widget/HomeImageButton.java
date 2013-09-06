@@ -57,6 +57,11 @@ public class HomeImageButton extends FrameLayout {
     }
 
     public void setSrc(int rid) {
+        this.imageView.setImageResource(rid);
+    }
+
+    //实现自己的背景
+    public void setBackground(int rid) {
         this.baseLayout.setBackgroundResource(rid);
     }
 

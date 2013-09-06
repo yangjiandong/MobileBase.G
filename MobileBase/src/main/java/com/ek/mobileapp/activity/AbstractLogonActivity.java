@@ -24,6 +24,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Paint.Style;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -32,6 +38,7 @@ import android.os.Message;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -41,8 +48,8 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -64,17 +71,19 @@ import com.ek.mobilebapp.R;
 public abstract class AbstractLogonActivity extends Activity {
     abstract protected void afterLogin();
 
+    private int screenWidth;
+    private int scrollHeight;
+
     MainApplication ac;
     // Debugging
     static final String TAG = "LogonActivity";
     boolean isDebuggable = true;
-    TextView customerInfo;//医院
+    ImageView customerInfo;//医院
 
     WebView host_info;
     EditText username;
     EditText password;
     Button logonBtn;
-    ImageButton parmBtn;
     CheckBox savepassword;
     TelephonyManager tm;
     String version = "1";
@@ -82,8 +91,6 @@ public abstract class AbstractLogonActivity extends Activity {
     public static final int LOGINACTION = 12;
     AlertDialog logonProDialog;
     String ip = "";
-    //update
-    boolean isupdate = false;
     String strURL = "";
     ProgressDialog updateProgressDlg;
 
@@ -91,7 +98,7 @@ public abstract class AbstractLogonActivity extends Activity {
     String HOST = "";
 
     private CharSequence readHost(int in) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         InputStream is = getResources().openRawResource(in);
 
         try {
@@ -127,11 +134,23 @@ public abstract class AbstractLogonActivity extends Activity {
         });
     }
 
+    private void getSize() {
+        RelativeLayout titleView = (RelativeLayout) findViewById(R.id.custome_title_id);
+        //RelativeLayout userView = (RelativeLayout) findViewById(R.id.main_User_layout);
+
+        WindowManager windowManager = getWindowManager();
+        Display display = windowManager.getDefaultDisplay();
+        screenWidth = display.getWidth();
+        scrollHeight = display.getHeight() - titleView.getHeight() - 20;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.logon);
+
+        getSize();
 
         ac = (MainApplication) getApplication();
         showTitle();
@@ -184,12 +203,7 @@ public abstract class AbstractLogonActivity extends Activity {
         password = (EditText) findViewById(R.id.logon_password);
         savepassword = (CheckBox) findViewById(R.id.logon_save_password);
         logonBtn = (Button) findViewById(R.id.logon_ok);
-        parmBtn = (ImageButton) findViewById(R.id.parm_set);
-        customerInfo = (TextView) findViewById(R.id.customer_info);
-
-        //
-        TextView appname_info = (TextView) findViewById(R.id.appname_info);
-        appname_info.setText(ac.getAppName());
+        customerInfo = (ImageView) findViewById(R.id.logon_logo);
 
         String share_username = ac.getUserName();
         String share_password = ac.getUserPwd();
@@ -207,14 +221,6 @@ public abstract class AbstractLogonActivity extends Activity {
 
         if (!isDebuggable)
             getLastVersion();
-
-        parmBtn.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(AbstractLogonActivity.this, SettingActivity.class);//PictureActivity.class);
-                startActivity(intent);
-            }
-        });
 
         logonBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -237,13 +243,13 @@ public abstract class AbstractLogonActivity extends Activity {
         });
 
         //记录服务器地址
-        ImageView tv = (ImageView) findViewById(R.id.logon_icon);
-        tv.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(AbstractLogonActivity.this, HostListActivity.class);
-                startActivityForResult(intent, HostListActivity.REQUEST_HOST_SET);
-            }
-        });
+        //ImageView tv = (ImageView) findViewById(R.id.logon_icon);
+        //tv.setOnClickListener(new OnClickListener() {
+        //    public void onClick(View v) {
+        //        Intent intent = new Intent(AbstractLogonActivity.this, HostListActivity.class);
+        //        startActivityForResult(intent, HostListActivity.REQUEST_HOST_SET);
+        //    }
+        //});
     }
 
     @Override
@@ -601,6 +607,11 @@ public abstract class AbstractLogonActivity extends Activity {
         startActivity(intent);
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+    }
+
     private String getMIMEType(File f) {
         String type = "";
         String fName = f.getName();
@@ -739,15 +750,12 @@ public abstract class AbstractLogonActivity extends Activity {
 
             switch (type) {
             case 1: {
-                String s = ac.getCustomer();//sharedPreferences.getString("customer", "医院");
-                //html
-                //CharSequence c = Html.fromHtml("<font color=\"#ff0000\" size=\"30\">"+s+"</font>");
-                customerInfo.setText(s);
+                String s = ac.getCustomer();
+                customerInfo.setImageDrawable(writeOnDrawable(s));
+
                 break;
             }
             case 0: {
-                //String mss = msg.getData().getString("msg");
-                //MobLogAction.getMobLogAction().mobLogError("customer info", UtilString.isBlank(mss) ? "" : mss);
                 break;
             }
             default: {
@@ -756,6 +764,43 @@ public abstract class AbstractLogonActivity extends Activity {
             }
         }
     };
+
+    BitmapDrawable writeOnDrawable(String text) {
+        //Bitmap bm = BitmapFactory.decodeResource(getResources(), drawableId).copy(Bitmap.Config.ARGB_8888, true);
+
+        Paint paint = new Paint();
+        paint.setStyle(Style.FILL);
+        //paint.setTextAlign(Paint.Align.CENTER);
+        paint.setAntiAlias(true);
+        paint.setColor(Color.BLACK);
+
+        float w = ViewUtils.diptopx(getApplicationContext(), 40);
+        paint.setTextSize(w);//30dip
+
+        float width = paint.measureText(text);
+        Bitmap bm = Bitmap.createBitmap(10 + (int) width, 100, Bitmap.Config.ARGB_8888);
+        Logger.d("window width:" + screenWidth);
+        Logger.d("infoImg width:" + width);
+
+        Canvas canvas = new Canvas(bm);
+        canvas.drawText(text, 0, bm.getHeight() / 2, paint);
+
+        //
+        String filename = "version.jpg";
+        File sd = Environment.getExternalStorageDirectory();
+        File dest = new File(sd, filename);
+
+        try {
+            FileOutputStream out = new FileOutputStream(dest);
+            bm.compress(Bitmap.CompressFormat.PNG, 90, out);
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new BitmapDrawable(bm);
+    }
 
     //返回用户
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -779,7 +824,8 @@ public abstract class AbstractLogonActivity extends Activity {
             }
             break;
         }
-        default: {}
+        default: {
+        }
         }
     }
 

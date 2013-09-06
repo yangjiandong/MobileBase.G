@@ -88,7 +88,7 @@ public abstract class AppStart extends Activity {
                             Logger.e(e.toString());
                         } finally {
                             try {
-                                //Thread.sleep(2000);
+                                Thread.sleep(2000);
                             } catch (Exception e) {
                                 // TODO: handle exception
                             }

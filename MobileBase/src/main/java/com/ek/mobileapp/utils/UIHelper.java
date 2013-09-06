@@ -47,8 +47,6 @@ public class UIHelper {
 
     /**
      * 显示登录页面
-     *
-     * @param activity
      */
     public static void showLoginDialog(Context context) {
         Intent intent = new Intent(context, LogonActivity.class);
@@ -142,10 +140,6 @@ public class UIHelper {
 
     /**
      * 加载显示图片
-     *
-     * @param imgFace
-     * @param faceURL
-     * @param errMsg
      */
     public static void showLoadImage(final ImageView imgView,
             final String imgURL, final String errMsg, final int imgBlankId, final String url) {

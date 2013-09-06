@@ -24,6 +24,7 @@ import com.ek.mobileapp.utils.FileUtils;
 import com.ek.mobileapp.utils.ImageUtils;
 import com.ek.mobileapp.utils.StringUtils;
 import com.ek.mobileapp.utils.ToastUtils;
+import com.ek.mobileapp.utils.UIHelper;
 import com.ek.mobilebapp.R;
 
 /**

@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
     Button leftBtn;
 
     Map<String, Integer> btns = new HashMap<String, Integer>();
-    Map<String, Integer> btnsStyle = new HashMap<String, Integer>();
+    Map<String, int[]> btnsStyle = new HashMap<String, int[]>();
 
     //binder service
     TextView main_message_count;
@@ -256,18 +256,18 @@ public class MainActivity extends Activity {
         btns.put("11", R.id.m11);
         btns.put("12", R.id.m12);
 
-        btnsStyle.put("01", R.drawable.home_grid_item_blue3);
-        btnsStyle.put("02", R.drawable.home_grid_item_green);
-        btnsStyle.put("03", R.drawable.home_grid_item_orange);
-        btnsStyle.put("04", R.drawable.home_grid_item_blue2);
-        btnsStyle.put("05", R.drawable.home_grid_item_red2);
-        btnsStyle.put("06", R.drawable.home_grid_item_purple);
-        btnsStyle.put("07", R.drawable.home_grid_item_yellow);
-        btnsStyle.put("08", R.drawable.home_grid_item_blue);
-        btnsStyle.put("09", R.drawable.home_grid_item_red);
-        btnsStyle.put("10", R.drawable.nurse_button0);
-        btnsStyle.put("11", R.drawable.nurse_button0);
-        btnsStyle.put("12", R.drawable.nurse_button0);
+        btnsStyle.put("01", new int[] { R.drawable.home_grid_item_blue3, R.drawable.db_icon_appointment });
+        btnsStyle.put("02", new int[] { R.drawable.home_grid_item_green, R.drawable.db_icon_appointment });
+        btnsStyle.put("03", new int[] { R.drawable.home_grid_item_orange, R.drawable.db_icon_appointment });
+        btnsStyle.put("04", new int[] { R.drawable.home_grid_item_blue2, R.drawable.db_icon_appointment });
+        btnsStyle.put("05", new int[] { R.drawable.home_grid_item_red2, R.drawable.db_icon_appointment });
+        btnsStyle.put("06", new int[] { R.drawable.home_grid_item_purple, R.drawable.db_icon_appointment });
+        btnsStyle.put("07", new int[] { R.drawable.home_grid_item_yellow, R.drawable.db_icon_appointment });
+        btnsStyle.put("08", new int[] { R.drawable.home_grid_item_blue, R.drawable.db_icon_appointment });
+        btnsStyle.put("09", new int[] { R.drawable.home_grid_item_red, R.drawable.db_icon_appointment });
+
+        //btnsStyle.put("01", R.drawable.home_grid_item_blue3);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -304,7 +304,8 @@ public class MainActivity extends Activity {
                 if (id != null) {
                     HomeImageButton bn = new HomeImageButton(getApplicationContext(), null);
                     bn.setId(btns.get(code));
-                    bn.setSrc(this.btnsStyle.get(code));
+                    bn.setBackground(this.btnsStyle.get(code)[0]);
+                    bn.setSrc(this.btnsStyle.get(code)[1]);
                     bn.setText(module);
                     bn.setSize((screenWidth) / count, scrollHeight / 6);
 
