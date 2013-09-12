@@ -32,7 +32,7 @@
     <dimen name="intro_top_padding_top">0.0dip</dimen>
     <dimen name="splash_padding_left">10.0dip</dimen>
     <dimen name="splash_padding_top">10.0dip</dimen>
-    <dimen name="logon_panel_margin">30.0dip</dimen>
+    <dimen name="logon_panel_margin">50.0dip</dimen>
     <dimen name="logon_panel_re_height">65.0dip</dimen>
     <dimen name="slidingmenu_offset">60dp</dimen>
     <dimen name="list_padding">10dp</dimen>

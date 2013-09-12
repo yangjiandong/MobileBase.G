@@ -45,9 +45,8 @@ public class GlobalCache {
     String barcode_patient;
     String barcode_orderno;
     String barcode_lis;
-    String barcode_outpatient;
 
-	protected GlobalCache() {
+    protected GlobalCache() {
     }
 
     public static synchronized GlobalCache getCache() {
@@ -258,11 +257,4 @@ public class GlobalCache {
         this.barcode_lis = barcode_lis;
     }
 
-    public String getBarcode_outpatient() {
-		return barcode_outpatient;
-	}
-
-	public void setBarcode_outpatient(String barcode_outpatient) {
-		this.barcode_outpatient = barcode_outpatient;
-	}
 }

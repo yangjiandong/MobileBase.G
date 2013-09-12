@@ -10,8 +10,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.NetworkInfo.State;
@@ -130,14 +128,14 @@ public class LogonAction {
             String customer = res.getString("customer");
 
             //
-            MainApplication ac = (MainApplication)context.getApplicationContext();
+            MainApplication ac = (MainApplication) context.getApplicationContext();
             ac.setProperty(AppConfig.CONF_CUSTOMER, customer);
 
             //his
             GlobalCache.getCache().setBarcode_patient(res.getString("barcode_patient"));
             GlobalCache.getCache().setBarcode_orderno(res.getString("barcode_orderno"));
             GlobalCache.getCache().setBarcode_lis(res.getString("barcode_lisno"));
-            GlobalCache.getCache().setBarcode_outpatient(res.getString("barcode_outpatient"));
+
             return WebUtils.SUCCESS;
         } catch (JSONException e) {
             e.printStackTrace();

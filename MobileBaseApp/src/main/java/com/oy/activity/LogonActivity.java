@@ -1,9 +1,8 @@
-package com.app;
+package com.oy.activity;
 
 import android.content.Intent;
 import android.widget.TextView;
 
-import com.app.example.MainActivity;
 import com.ek.mobileapp.activity.AbstractLogonActivity;
 import com.ek.mobileapp.utils.UtilString;
 import com.ek.mobilebapp.R;

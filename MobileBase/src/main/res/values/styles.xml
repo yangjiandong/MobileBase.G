@@ -90,6 +90,7 @@
         <item name="android:textSize">16.0sp</item>
         <item name="android:textColor">@color/primary_text_black_color</item>
         <item name="android:button">@drawable/my_btn_radio</item>
+        <item name="android:paddingLeft">30dip</item>
     </style>
 
     <style name="KsToggleButton" parent="@android:style/Widget.Button.Toggle">

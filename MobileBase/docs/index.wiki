@@ -2,6 +2,24 @@
 
 = mobile base app =
 
+== 2013.09.12 ==
+
+- 实验电话拦截,2.3.6, 4.1 版本下测试成功
+ - com.android.internal.telephony.ITelephony.aidl
+ - MobileBaseApp
+  - MainActivity
+   
+== 2013.09.06 ==
+
+- icon
+ - http://flaticons.net,Dimensions:48px,Padding:2px,icon color:120963
+
+== 2013.09.05 ==
+
+- 调整登录界面,图片显示用户医院信息
+ - logon.xml
+ - AbstracLogonActivity
+
 == 2013.09.04 ==
 
 - 首页增加读取服务端标语图片
